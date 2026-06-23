@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pandas
+scikit-learn
+joblib
+google-cloud-bigquery
+pyarrow
+python-dotenv
+mlflow
+pandas-gbq
