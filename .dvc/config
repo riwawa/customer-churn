@@ -1,0 +1,5 @@
+[core]
+    remote = gcs_remote
+['remote "gcs_remote"']
+    url = gs://churn-mlops-dvc-store
+    credentialpath = /Users/bialcna/.config/gcloud/application_default_credentials.json
