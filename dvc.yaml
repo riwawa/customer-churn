@@ -1,0 +1,17 @@
+stages:
+  train:
+    cmd: python -m src.training.train
+    deps:
+      - src/training/train.py
+      - src/etl/feature_engineering.py
+      - data/raw/telco_churn.csv
+      - params.yaml
+    params:
+      - data
+      - train
+    outs:
+      - data/processed/features.csv
+      - models/churn_model.pkl
+    metrics:
+      - models/metrics.json:
+          cache: false

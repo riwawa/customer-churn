@@ -1,0 +1,10 @@
+data:
+  raw_path: data/raw/telco_churn.csv
+  processed_path: data/processed/features.csv
+  test_size: 0.2
+  random_state: 42
+
+train:
+  n_estimators: 300
+  class_weight: balanced
+  threshold: 0.4

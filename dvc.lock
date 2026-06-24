@@ -1,0 +1,45 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python -m src.training.train
+    deps:
+    - path: data/raw/telco_churn.csv
+      hash: md5
+      md5: 0f9de68e012bd3aed5fa7cdc9fc421af
+      size: 977501
+    - path: params.yaml
+      hash: md5
+      md5: 3802ac0e8b2cf505145ee9185711a113
+      size: 195
+    - path: src/etl/feature_engineering.py
+      hash: md5
+      md5: a9e575f91314538a9a0b62f8aab834c1
+      size: 1364
+    - path: src/training/train.py
+      hash: md5
+      md5: f6fe5c9bf3e7a15cfa55c717f2559e32
+      size: 5095
+    params:
+      params.yaml:
+        data:
+          raw_path: data/raw/telco_churn.csv
+          processed_path: data/processed/features.csv
+          test_size: 0.2
+          random_state: 42
+        train:
+          n_estimators: 300
+          class_weight: balanced
+          threshold: 0.4
+    outs:
+    - path: data/processed/features.csv
+      hash: md5
+      md5: d4256497bf2e2001e42d6e0c79cc9bdc
+      size: 1545078
+    - path: models/churn_model.pkl
+      hash: md5
+      md5: 2731af1b9b7ba8cb2783dec559cd1d9e
+      size: 54771062
+    - path: models/metrics.json
+      hash: md5
+      md5: 3b677ec8918ea412953b0418afc58e53
+      size: 98
