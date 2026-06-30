@@ -7,6 +7,7 @@ from src.etl.validate import validate_dataset
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 def upload_raw_data(
     csv_path: str,
     project_id: str,
@@ -15,8 +16,6 @@ def upload_raw_data(
 ) -> None:
     """
     Carrega CSV para camada Raw do BigQuery.
-    Regra de ouro: NUNCA transforme dados na raw layer.
-    Dado bruto = fonte da verdade.
     """
     client = bigquery.Client(project=project_id)
     

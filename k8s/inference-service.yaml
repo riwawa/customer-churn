@@ -1,0 +1,17 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: churn-predictor
+  namespace: kserve
+spec:
+  predictor:
+    serviceAccountName: kserve-gcs-sa
+    sklearn:
+      storageUri: gs://churn-mlops-dvc-store/kserve
+      resources:
+        requests:
+          memory: 512Mi
+          cpu: 250m
+        limits:
+          memory: 1Gi
+          cpu: 500m
