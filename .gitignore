@@ -5,4 +5,14 @@ models/*.pkl
 .env
 *.json
 !models/metrics.json
-data/raw/
+
+# MLflow local
+mlruns/
+mlflow.db
+mlflow.db-journal
+
+# AWS / SageMaker local
+.aws-sam/
+
+# DVC cache local
+.dvc/cache/
